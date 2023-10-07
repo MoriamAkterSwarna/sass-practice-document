@@ -1,0 +1,15 @@
+// @forward "./base/reset";
+// @forward "./base/typography";
+
+@forward "./base/index";
+// @use "./util/index";
+@use "./util/index as variable";
+header{
+    // background-color: index.$header_bg;
+    background-color: variable.$header_bg;
+    padding: 1rem;
+}
+main{
+    background-color: index.$main-bg;
+    padding: 1rem;
+}

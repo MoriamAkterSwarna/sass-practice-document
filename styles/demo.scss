@@ -1,0 +1,158 @@
+
+
+ // color variable declaration 
+ $header-bgcolor: #8ea307;
+ $main-bgcolor: #ffd384;
+ $footer-bgcolor: #ffaec0;
+
+//  $para-fontsize: 15px;
+
+
+//  nav styling
+
+
+// using css
+nav {
+    margin-top: 15px;
+    ul{
+            list-style-type: none;
+            li{
+                    display: inline-block;
+                    margin: 5px 15px;
+                    a{
+                            text-decoration: none;
+                            display: inline-block;
+                            padding: 10px;
+                            transition: 0.4s;
+                            border-radius: 5px;
+                            @include setFontSize(small)
+                        
+                        }
+                        a:hover{
+                                background: #000;
+                                color: white;
+                                
+                            }
+                }
+        }
+}
+
+// nav ul{
+//     list-style-type: none;
+// }
+// nav ul li{
+//     display: inline-block;
+//     margin: 5px 15px;
+// }
+// nav ul li a{
+//     text-decoration: none;
+//     display: inline-block;
+//     padding: 10px;
+//     transition: 0.4s;
+//     border-radius: 5px;
+
+// }
+// nav ul li a:hover{
+//     background: #000;
+//     color: white;
+    
+// }
+
+
+/*browser reset code
+ */
+
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+ }
+ header{
+    background: $header-bgcolor;
+ }
+main{
+    background: $main-bgcolor;
+}
+// #about p{
+//     font-size: $para-fontsize;
+// }
+[class *= "col-"]{
+    float: left;
+}
+// .col-x{width: x%;}
+// .col-x{width: 100% /12;}
+// .col-1 {width: 8.33%;}
+// .col-2 {width: 16.66%;}
+// .col-3 {width: 25%;}
+// .col-4 {width: 33.33%;}
+// .col-5 {width: 41.66%;}
+// .col-6 {width: 50%;}
+// .col-7 {width: 58.33%;}
+// .col-8 {width: 66.66%;}
+// .col-9 {width: 75%;}
+// .col-10 {width: 83.33%;}
+// .col-11 {width: 91.66%;}
+// .col-12 {width: 100%;}
+// for loop
+@for $i from 1 through 12{
+    .col-#{$i}{width: 100% / 12 * $i;}
+}
+
+// while loop
+$i:1;
+@while $i<13{
+    .col-#{$i}{width: 100% / 12 * $i;}
+    $i: $i + 1;
+}
+.row::after{
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.btn{
+    border: none;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+.btn-download{
+
+    @extend .btn;
+    background-color: brown;
+}
+// @mixin para-style{
+    @mixin para-style($size, $style){
+        // @mixin para-style{
+            // font-size: 20px;
+            font-size: $size;
+            // text-align: justify;
+            text-align: $style;
+            margin: 10px;
+            padding: 20px
+        }
+        #education p{
+            // @include para-style;
+            @include para-style(25px, right);
+            
+        }
+footer{
+    background: $footer-bgcolor;
+    padding: 10px;
+}
+@mixin setFontSize($value){
+    @if $value == small {
+        font-size: 12px;
+    }
+    
+    @else if $value == medium {
+        font-size: 16px;
+    }
+    @else{
+        font-size: 20px;
+    }
+ 
+
+}
